@@ -9,6 +9,26 @@ const routes: Routes = [
     component: IndexComponent,
   },
   {
+    path: 'seguridad',
+    loadChildren: () => import('./modulos/seguridad/seguridad.module').then(m => m.SeguridadModule)
+  },
+  {
+    path: 'admin',
+    loadChildren: () => import('./modulos/admin/admin.module').then(m => m.AdminModule)
+  },
+  {
+    path: 'estaciones',
+    loadChildren: () => import('./modulos/estaciones/estaciones.module').then(m => m.EstacionesModule)
+  },
+{
+  path: 'rutas',
+  loadChildren: () => import('./modulos/rutas/rutas.module').then(m => m.RutasModule)
+  },
+{
+  path: 'servicios',
+  loadChildren: () => import('./modulos/servicios/servicios.module').then(m => m.ServiciosModule)
+  },
+  {
     path: '',
     pathMatch: 'full',
     redirectTo: '/index'
