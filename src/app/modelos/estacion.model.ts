@@ -3,6 +3,6 @@ export class EstacionModel{
     nombre?: String;
     direccion?: String;
     coordenada_x?: String;
-    ccoordenada_y?: String;
+    coordenada_y?: String;
     tipo?: String;
   }
