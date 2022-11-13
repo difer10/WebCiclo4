@@ -1,1 +1,31 @@
-<p>get works!</p>
+<div class="container">
+    <br>
+    <a routerLink="/servicios/create" class="btn">Registrar Servicio</a>
+   
+    <table class="table responsive">
+      <thead>
+        <tr>
+            <th>Fecha</th>
+            <th>Hora de Inicio</th>
+            <th>Hora de Fin</th>
+            <th>Placa</th>
+            <th>Conductor</th>
+        </tr>
+      </thead>   
+      <tbody>
+        <tr *ngFor="let p of listado">
+          <td>{{p.fecha}}</td>
+          <td>{{p.hora_inicio}}</td>
+          <td>{{p.hora_fin}}</td>
+          <td>{{p.placa_del_vehiculo}}</td>
+          <td>{{p.nombre_conductor}}</td>
+          <td>
+            <a routerLink="/servicios/edit/{{p.id}}" class="btn"><i class="material-icons">create</i> </a>
+            <!--para crear un icono se borra la parte editar y se escribe esto <i class="material-icons">create</i> -->
+            
+            <button class="btn red" (click)="delete(p.id)"><i class="material-icons">delete</i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
