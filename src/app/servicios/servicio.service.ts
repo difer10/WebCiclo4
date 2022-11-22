@@ -18,12 +18,11 @@ export class ServicioService {
     }
 
     store(servicio: ServicioModel): Observable<ServicioModel> {
-      return this.http.post<ServicioModel>(`${this.url}/servicios`, {
-        fecha: servicio.fecha,
-        hora_inicio: servicio.hora_inicio,
-        hora_fin: servicio.hora_fin,
-        placa_del_vehiculo: servicio.placa_del_vehiculo,
-        nombre_conductor: servicio.nombre_conductor
+      return this.http.post<ServicioModel>(`${this.url}/servicios`,servicio, {
+       // Le paso el token a la solicitud
+        headers: new HttpHeaders({
+          "Authorization": `Bearer ${this.token}`
+        })
       });
     }
 
@@ -42,7 +41,9 @@ export class ServicioService {
         hora_inicio: servicio.hora_inicio,
         hora_fin: servicio.hora_fin,
         placa_del_vehiculo: servicio.placa_del_vehiculo,
-        nombre_conductor: servicio.nombre_conductor
+        nombre_conductor: servicio.nombre_conductor,
+        dinero_recogido: servicio.dinero_recogido,
+        ruta: servicio.ruta
       }, {
         // Le paso el token a la solicitud
         headers: new HttpHeaders({

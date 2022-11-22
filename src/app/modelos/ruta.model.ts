@@ -3,4 +3,5 @@ export class RutaModel{
     origen?: String;
     destino?: String;
     tiempo_estimado?: String;
+
   }

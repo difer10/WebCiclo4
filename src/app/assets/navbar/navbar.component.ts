@@ -18,6 +18,7 @@ export class NavbarComponent implements OnInit {
     this.subs = this.seguridadService.datosUsuarioSesion().subscribe((data: UsuarioModel) => {
       console.log(data)
       this.activeSession = data.isLoggedIn;
+      
     })
   }
 

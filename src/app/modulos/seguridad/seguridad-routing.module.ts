@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CerrarSesionComponent } from './cerrar-sesion/cerrar-sesion.component';
 import { LoginComponent } from './login/login.component';
+import { SessionGuard } from 'src/app/guards/session.guard';
 
 const routes: Routes = [
   {
@@ -10,6 +11,7 @@ const routes: Routes = [
   },
   {
     path: "logout",
+    canActivate: [SessionGuard],
     component: CerrarSesionComponent,
   },{
     path: '',

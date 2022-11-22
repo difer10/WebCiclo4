@@ -10,6 +10,9 @@
             <th>Hora de Fin</th>
             <th>Placa</th>
             <th>Conductor</th>
+            <th>Dinero Recogido</th>
+            <th>Ruta</th>
+
         </tr>
       </thead>   
       <tbody>
@@ -19,6 +22,8 @@
           <td>{{p.hora_fin}}</td>
           <td>{{p.placa_del_vehiculo}}</td>
           <td>{{p.nombre_conductor}}</td>
+          <td>{{p.dinero_recogido}}</td>
+          <td>{{p.ruta}}</td>
           <td>
             <a routerLink="/servicios/edit/{{p.id}}" class="btn"><i class="material-icons">create</i> </a>
             <!--para crear un icono se borra la parte editar y se escribe esto <i class="material-icons">create</i> -->

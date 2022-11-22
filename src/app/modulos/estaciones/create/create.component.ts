@@ -26,6 +26,7 @@ export class CreateComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
   store(){
     let estacion = new EstacionModel();
     estacion.nombre = this.fgValidacion.controls["nombre"].value as string;
@@ -33,6 +34,7 @@ export class CreateComponent implements OnInit {
     estacion.coordenada_x = this.fgValidacion.controls["coordenada_x"].value as string;
     estacion.coordenada_y = this.fgValidacion.controls["coordenada_y"].value as string;
     estacion.tipo = this.fgValidacion.controls["tipo"].value as string;
+  
     this.estacionService.store(estacion).subscribe((data: EstacionModel)=> {
       Swal.fire('Creado correctamente!', '', 'success')
       this.router.navigate(['/estaciones/get']);

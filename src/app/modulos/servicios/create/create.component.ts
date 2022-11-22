@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { ServicioModel } from 'src/app/modelos/servicio.model';
 import { ServicioService } from 'src/app/servicios/servicio.service';
 import Swal from 'sweetalert2'
+import { RutaService } from 'src/app/servicios/ruta.service';
+import { RutaModel } from 'src/app/modelos/ruta.model';
 
 @Component({
   selector: 'app-create',
@@ -14,6 +16,7 @@ export class CreateComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
     private servicioService: ServicioService,
+    private rutaService: RutaService,
     private router: Router) { }
 
     fgValidacion = this.fb.group({
@@ -22,10 +25,11 @@ export class CreateComponent implements OnInit {
       hora_fin: ['', [Validators.required]],
       placa_del_vehiculo: ['', [Validators.required]],
       nombre_conductor: ['', [Validators.required]],
+      dinero_recogido: ['', [Validators.required]],
+      ruta: ['', [Validators.required]],
     });
 
-  ngOnInit(): void {
-  }
+  
   store(){
     let servicio = new ServicioModel();
     servicio.fecha = this.fgValidacion.controls["fecha"].value as string;
@@ -33,6 +37,8 @@ export class CreateComponent implements OnInit {
     servicio.hora_fin = this.fgValidacion.controls["hora_fin"].value as string;
     servicio.placa_del_vehiculo = this.fgValidacion.controls["placa_del_vehiculo"].value as string;
     servicio.nombre_conductor = this.fgValidacion.controls["nombre_conductor"].value as string;
+    servicio.dinero_recogido = this.fgValidacion.controls["dinero_recogido"].value as string;
+    servicio.ruta = this.fgValidacion.controls["ruta"].value as string;
     this.servicioService.store(servicio).subscribe((data: ServicioModel)=> {
       Swal.fire('Creado correctamente!', '', 'success')
       this.router.navigate(['/servicios/get']);
@@ -42,5 +48,19 @@ export class CreateComponent implements OnInit {
       alert("Error en el envio");
     })
   }
+
+listadoRutas: RutaModel[] = []
+
+ngOnInit(): void {
+  this.getRutas()
+}
+
+getRutas(){
+  this.rutaService.getAll().subscribe((data: RutaModel[]) => {
+    this.listadoRutas = data
+    console.log(data)
+    })
+  }
+
 
 }

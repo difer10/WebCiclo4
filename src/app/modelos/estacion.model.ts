@@ -5,4 +5,5 @@ export class EstacionModel{
     coordenada_x?: String;
     coordenada_y?: String;
     tipo?: String;
+    
   }

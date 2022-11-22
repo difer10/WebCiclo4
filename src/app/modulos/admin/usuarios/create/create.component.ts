@@ -12,7 +12,8 @@ import Swal from 'sweetalert2'
 })
 export class CreateComponent implements OnInit {
 
-  constructor(private fb: FormBuilder,
+  constructor(
+    private fb: FormBuilder,
     private usuarioService: UsuarioService,
     private router: Router) { }
 

@@ -1,30 +1,33 @@
 <div class="container">
-    <h3 class="center-align">Registrar Ruta</h3>
-    <form [formGroup]="fgValidacion" class="col s12" (ngSubmit)="store()">
-      <div class="row">
-        <div class="input-field col s12">
-          <input formControlName="origen" type="text" class="validate">
-          <label for="origen">Origen</label>
-        </div>
+  <h3 class="center-align">Registrar Ruta</h3>
+  <form [formGroup]="fgValidacion" class="col s12" (ngSubmit)="store()">
+    <div class="row">
+      <div class="input-field col s6">
+        <select class="browser-default" formControlName="origen">
+          <option value="" disabled selected>Seleccione la estacion Origen</option>
+          <option *ngFor="let estacion of listadoEstaciones" value="{{estacion.nombre}}">{{estacion.nombre}}</option>
+        </select>
       </div>
 
-       <div class="row">
-        <div class="input-field col s12">
-          <input formControlName="destino" type="text" class="validate">
-          <label for="destino">Destino</label>
-        </div>
+      <div class="input-field col s6">
+        <select class="browser-default" formControlName="destino">
+          <option value="" disabled selected>Seleccione la estacion Destino</option>
+          <option *ngFor="let estacion of listadoEstaciones" value="{{estacion.nombre}}">{{estacion.nombre}}</option>
+        </select>
       </div>
-      <div class="row">
-        <div class="input-field col s12">
-            <input formControlName="tiempo_estimado" type="text" class="validate">
-            <label for="tiempo_estimado">Tiempo Estimado</label>
-        </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input formControlName="tiempo_estimado" type="text" class="validate">
+        <label for="tiempo_estimado">Tiempo Estimado</label>
       </div>
-         
-      <div class="row center-align">
-        <button [disabled]="!fgValidacion.valid" class="btn waves-effect waves-light" type="submit" name="action">Enviar
-          <i class="material-icons right">send</i>
-        </button>
-      </div>
-    </form>
-  </div>
+    </div>
+
+    <div class="row center-align">
+      <button [disabled]="!fgValidacion.valid" class="btn waves-effect waves-light" type="submit" name="action">Enviar
+        <i class="material-icons right">send</i>
+      </button>
+    </div>
+  </form>
+    
+</div>

@@ -18,12 +18,11 @@ export class EstacionService {
     }
 
     store(estacion: EstacionModel): Observable<EstacionModel> {
-      return this.http.post<EstacionModel>(`${this.url}/Estaciones`, {
-        nombre: estacion.nombre,
-        direccion: estacion.direccion,
-        coordenada_x: estacion.coordenada_x,
-        coordenada_y: estacion.coordenada_y,
-        tipo: estacion.tipo
+      return this.http.post<EstacionModel>(`${this.url}/Estaciones`,estacion, {
+        headers: new HttpHeaders({
+          "Authorization": `Bearer ${this.token}`
+        })
+        
       });
     }
 
