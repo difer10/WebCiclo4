@@ -23,10 +23,11 @@
             </div>
         </div>
         <div class="row">
-            <div class="input-field col s12">
-                <input formControlName="tipo" type="text" class="validate">
-                <label class="active" for="tipo">Tipo</label>
-            </div>
+            <select class="browser-default" formControlName="tipo">
+                <option value="" disabled default selected>Seleccione el Tipo</option>
+                <option value="Principal" selected>Principal</option>
+                <option value="Secundaria">Secundaria</option>
+            </select>
         </div>
 
         <div class="row center-align">

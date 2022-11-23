@@ -22,19 +22,12 @@
       </div>
     </div>
     <div class="row">
-      <select class="browser-default" fornControlName="tipo" >
-        <option value="" disabled default selected>Seleccione el Tipo</option>>
-        <option value="Principal">Principal</option>
+      <select class="browser-default" formControlName="tipo" >
+        <option value="" disabled default selected>Seleccione el Tipo</option>
+        <option value="Principal" selected>Principal</option>
         <option value="Secundaria">Secundaria</option>
       </select>
     </div>
-
-    <!-- <div class="row">
-      <div class="input-field col s12">
-        <input formControlName="tipo" type="text" class="validate">
-        <label for="tipo">Tipo</label>
-      </div>
-    </div> -->
 
     <div class="row center-align">
       <button [disabled]="!fgValidacion.valid" class="btn waves-effect waves-light" type="submit" name="action">Enviar

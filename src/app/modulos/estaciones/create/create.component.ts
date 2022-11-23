@@ -5,6 +5,7 @@ import { EstacionModel } from 'src/app/modelos/estacion.model';
 import { EstacionService } from 'src/app/servicios/estacion.service';
 import Swal from 'sweetalert2'
 
+
 @Component({
   selector: 'app-create',
   templateUrl: './create.component.html',
@@ -23,6 +24,8 @@ export class CreateComponent implements OnInit {
       coordenada_y: ['', [Validators.required]],
       tipo: ['', [Validators.required]],
     });
+
+  
 
   ngOnInit(): void {
   }
@@ -44,5 +47,7 @@ export class CreateComponent implements OnInit {
       alert("Error en el envio");
     })
   }
+
+  
 
 }
